@@ -17,7 +17,7 @@ public class ClockDisplay
     private NumberDisplay hours;
     private NumberDisplay minutes;
     private String displayString;    // simulates the actual display
-    
+    private String period;          // period of time either AM or PM
     /**
      * Constructor for ClockDisplay objects. This constructor 
      * creates a new clock set at 00:00.
@@ -80,9 +80,15 @@ public class ClockDisplay
     {
         int hour = hours.getValue();
         
+        if(hour >12) {
+            period = " PM";
+        }
+        else{
+            period = " AM";
+        }
         if(hour >=12) {
             hour-=12;}
         displayString = hour + ":" + 
-                        minutes.getDisplayValue();
+                        minutes.getDisplayValue() + period;
     }
 }
