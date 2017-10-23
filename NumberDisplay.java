@@ -54,7 +54,10 @@ public class NumberDisplay
      */
     public void setValue(int replacementValue)
     {
-        if((replacementValue >= 0) && (replacementValue < limit)) {
+        if((replacementValue >= 0) && (replacementValue <= limit)) {
+            value = replacementValue;
+        }
+        if((replacementValue > 12) && (replacementValue < 24)) {
             value = replacementValue;
         }
     }
